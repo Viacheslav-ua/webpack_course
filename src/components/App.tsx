@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import classes from './App.module.scss'
 
 const App = () => {
@@ -12,6 +12,8 @@ const App = () => {
 
     return (
         <div>
+          <Link to={'/about'} style={{marginRight: 20}}>About</Link>
+          <Link to={'/shop'}>Shop</Link>
           <h1 className={classes.value}>Webpack</h1>
           <button className={classes.btn} onClick={increment}>inc</button>
          <h1>{count}</h1>

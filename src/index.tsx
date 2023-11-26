@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import {createRoot} from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './components/App'
+import { LazyAbout } from './pages/about/About.lazy'
+import { Shop } from './pages/shop'
 
 const root =  document.getElementById('root')
 
@@ -18,11 +20,11 @@ const router = createBrowserRouter([
       children: [
         {
           path: '/about',
-          element: <h1>About</h1>
+          element: <Suspense fallback={'Loading...'}><LazyAbout /></Suspense>
         },
         {
           path: '/shop',
-          element: <h1>Shop</h1>
+          element: <Suspense fallback={'Loading...'}><Shop /></Suspense>
         },
       ]
     },
